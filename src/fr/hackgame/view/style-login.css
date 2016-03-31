@@ -1,0 +1,17 @@
+/*
+Auteur : Justin Louazel
+Derniere modif : 31/02/2016
+
+Feuille de style du launcher au lancmement du jeu.
+ */
+
+.background{
+	-fx-background-image : url("resources/login.jpg");
+	/*-fx-background-color : black ;*/
+	
+	}
+.label{
+	-fx-font-size : 25px ;
+	-fx-font-weight: bold;
+	
+	}
