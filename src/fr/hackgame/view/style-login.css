@@ -15,3 +15,15 @@ Feuille de style du launcher au lancmement du jeu.
 	-fx-font-weight: bold;
 	
 	}
+.button {
+    -fx-background-color: #5EB6DD;
+    -fx-border: none;
+    -fx-color: white;
+    -fx-padding: 15px 32px;
+    -fx-text-align: center;
+    -fx-text-decoration: none;
+    -fx-display: inline-block;
+    -fx-font-size: 16px;
+    -fx-margin: 4px 2px;
+    c-fx-cursor: pointer;
+}
