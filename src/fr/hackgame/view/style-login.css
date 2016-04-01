@@ -1,5 +1,5 @@
 /*
-Auteur : Justin Louazel
+Auteur : Samuel Compagon / Justin Louazel
 Derniere modif : 31/02/2016
 
 Feuille de style du launcher au lancmement du jeu.
@@ -12,18 +12,16 @@ Feuille de style du launcher au lancmement du jeu.
 	}
 .label{
 	-fx-font-size : 25px ;
-	-fx-font-weight: bold;
 	
 	}
 .button {
     -fx-background-color: #5EB6DD;
     -fx-border: none;
-    -fx-color: white;
     -fx-padding: 15px 32px;
     -fx-text-align: center;
     -fx-text-decoration: none;
     -fx-display: inline-block;
     -fx-font-size: 16px;
     -fx-margin: 4px 2px;
-    c-fx-cursor: pointer;
+    -fx-cursor: pointer;
 }
