@@ -6,8 +6,8 @@ import fr.hackgame.view.LoginController;
  * Auteur : Justin Louazel
  * Derniere modif : 31/03/2016
  * 
- * Classe principale, chargée de lancer les appli et les affichages 
- * Toute classe utilisée passe par ici. 
+ * Classe principale, chargÃ©e de lancer les appli et les affichages 
+ * Toute classe utilisÃ©e passe par ici. 
  */
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +21,7 @@ public class Launcher extends Application {
 	private AnchorPane paneLogin ;
 	
 	/*
-	 * methode appelé lors du lancement de l'appli
+	 * methode appelÃ© lors du lancement de l'appli
 	 * Initialisation de la fenetre principale 
 	 */
 	@Override	
@@ -44,8 +44,12 @@ public class Launcher extends Application {
 	
 	//Lancemement de laffichage
 	Scene scene = new Scene(paneLogin);
-	primaryStage.setScene(scene);
-	primaryStage.show();
+		primaryStage.setScene(scene);
+		primaryStage.setFullScreen(true);
+		primaryStage.setResizable(false);
+		primaryStage.setFullScreenExitHint("test");
+		primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+		primaryStage.show();
 	
 	LoginController control = load_log.getController();
 	control.setDialogStage(primaryStage);
