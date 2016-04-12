@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- 
-Auteur : Justin Louazel
-Derniere modif : 31/03/2016
+Auteur : Justin Louazel / Samuel Compagnon
+Derniere modif : 01/04/2016
 
 Affichage du login
 Fait avec SceneBuilder
@@ -10,27 +10,42 @@ Fait avec SceneBuilder
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="background" stylesheets="@style-login.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.hackgame.view.LoginController">
+<AnchorPane styleClass="background" stylesheets="@style-login.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.hackgame.view.LoginController">
    <children>
-      <Label layoutX="219.0" layoutY="237.0" stylesheets="@style-login.css" text="Utilisateur" textFill="#251600" />
-      <Label layoutX="184.0" layoutY="319.0" prefHeight="36.0" prefWidth="159.0" stylesheets="@style-login.css" text="Mot de passe" textFill="#251600">
+      <Label layoutX="589.0" layoutY="360.0" styleClass="label_textfield" stylesheets="@style-login.css" text="Utilisateur" textFill="WHITE" />
+      <Label layoutX="542.0" layoutY="453.0" prefHeight="36.0" prefWidth="159.0" styleClass="label_textfield" stylesheets="@style-login.css" text="Mot de passe" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="user_field" layoutX="357.0" layoutY="235.0" prefHeight="40.0" prefWidth="186.0" />
-      <TextField fx:id="pass_field" layoutX="357.0" layoutY="317.0" prefHeight="40.0" prefWidth="186.0" />
-      <Button layoutX="825.0" layoutY="551.0" mnemonicParsing="false" onAction="#handleCancel" text="Quitter" />
-      <ButtonBar layoutX="321.0" layoutY="430.0" prefHeight="40.0" prefWidth="236.0">
-        <buttons>
-            <Button minWidth="43.0" mnemonicParsing="false" onAction="#handleValidate" prefHeight="25.0" prefWidth="121.0" text="Valider" />
-          <Button minWidth="53.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" text="Nouveau" />
-        </buttons>
-      </ButtonBar>
+      <TextField fx:id="user_field" layoutX="745.0" layoutY="353.0" prefHeight="50.0" prefWidth="200.0" />
+      <PasswordField fx:id="pass_field" layoutX="745.0" layoutY="453.0" prefHeight="50.0" prefWidth="200.0" />
+      <Button layoutX="1787.0" layoutY="1000.0" mnemonicParsing="false" onAction="#handleCancel" text="Quitter" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <ButtonBar layoutX="1045.0" layoutY="546.0" prefHeight="35.0" prefWidth="285.0" />
+    <Button layoutX="958.0" layoutY="547.0" minWidth="45.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="55.0" prefWidth="125.0" text="Login" textFill="#f4e7e7" />
+      <Hyperlink layoutX="889.0" layoutY="1021.0" text="Pas encore de compte ?" textFill="#514c4c" underline="true" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="700.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Hyperlink>
+      <ImageView fitHeight="50.0" fitWidth="30.0" layoutX="861.0" layoutY="1020.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="900.0">
+         <image>
+            <Image url="@resources/param.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="label_inco" layoutX="772.0" layoutY="520.0" text="Nom  d'utilisateur ou mot de passe inconnu..." textFill="#514c4c" visible="false" AnchorPane.bottomAnchor="170.0" AnchorPane.rightAnchor="650.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
