@@ -7,21 +7,20 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65">
+<AnchorPane prefHeight="500.0" prefWidth="600.0" styleClass="background" stylesheets="@style-inscription.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.hackgame.view.Inscription_Controller">
    <children>
-      <Label layoutX="234.0" layoutY="59.0" stylesheets="@style-inscription.css" text="Creer un compte HackGame :" AnchorPane.leftAnchor="50.0" />
+      <Label layoutX="234.0" layoutY="59.0" styleClass="titre" stylesheets="@style-inscription.css" text="Creer un compte HackGame :" AnchorPane.leftAnchor="50.0" />
       <Label layoutX="115.0" layoutY="148.0" text="Nom d'utilisateur" />
       <Label layoutX="137.0" layoutY="197.0" text="Mot de passe" />
       <Label layoutX="67.0" layoutY="252.0" text="Confirmer le mot de passe" />
-      <Label layoutX="116.0" layoutY="298.0" text="Date de naisance" />
-      <Button layoutX="274.0" layoutY="405.0" mnemonicParsing="false" text="Valider" />
-      <Button layoutX="522.0" layoutY="461.0" mnemonicParsing="false" text="Quitter" />
+      <Label layoutX="116.0" layoutY="298.0" text="Date de naissance" />
+      <Button layoutX="274.0" layoutY="405.0" mnemonicParsing="false" onAction="#handleValider" text="Valider" />
+      <Button layoutX="522.0" layoutY="461.0" mnemonicParsing="false" onAction="#handleCancel" text="Quitter" />
       <TextField layoutX="244.0" layoutY="144.0" />
       <PasswordField layoutX="244.0" layoutY="193.0" />
       <PasswordField layoutX="244.0" layoutY="257.0" />
-      <ComboBox layoutX="244.0" layoutY="303.0" prefHeight="25.0" prefWidth="61.0" promptText="00" />
-      <ComboBox layoutX="319.0" layoutY="303.0" prefHeight="25.0" prefWidth="61.0" promptText="00" />
-      <ComboBox layoutX="393.0" layoutY="303.0" prefHeight="25.0" prefWidth="72.0" promptText="0000" />
+      <ComboBox fx:id="cJour" layoutX="232.0" layoutY="303.0" prefHeight="25.0" prefWidth="61.0" promptText="00" />
+      <ComboBox fx:id="cMois" layoutX="319.0" layoutY="303.0" prefHeight="25.0" prefWidth="61.0" promptText="00" />
+      <ComboBox fx:id="cAn" layoutX="393.0" layoutY="303.0" prefHeight="25.0" prefWidth="72.0" promptText="0000" />
    </children>
 </AnchorPane>

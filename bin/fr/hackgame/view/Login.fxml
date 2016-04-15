@@ -19,7 +19,7 @@ Fait avec SceneBuilder
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane styleClass="background" stylesheets="@style-login.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.hackgame.view.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="background" stylesheets="@style-login.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.hackgame.view.LoginController">
    <children>
       <Label layoutX="589.0" layoutY="360.0" styleClass="label_textfield" stylesheets="@style-login.css" text="Utilisateur" textFill="WHITE" />
       <Label layoutX="542.0" layoutY="453.0" prefHeight="36.0" prefWidth="159.0" styleClass="label_textfield" stylesheets="@style-login.css" text="Mot de passe" textFill="WHITE">
@@ -32,7 +32,7 @@ Fait avec SceneBuilder
       <Button layoutX="1787.0" layoutY="1000.0" mnemonicParsing="false" onAction="#handleCancel" text="Quitter" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
       <ButtonBar layoutX="1045.0" layoutY="546.0" prefHeight="35.0" prefWidth="285.0" />
     <Button layoutX="958.0" layoutY="547.0" minWidth="45.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="55.0" prefWidth="125.0" text="Login" textFill="#f4e7e7" />
-      <Hyperlink layoutX="889.0" layoutY="1021.0" text="Pas encore de compte ?" textFill="#514c4c" underline="true" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="700.0">
+      <Hyperlink layoutX="889.0" layoutY="1021.0" onAction="#handleHyperLink" text="Pas encore de compte ?" textFill="#514c4c" underline="true" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="700.0">
          <font>
             <Font size="18.0" />
          </font>

@@ -1,10 +1,12 @@
 package fr.hackgame.view;
 
+import fr.hackgame.Launcher;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
+/*
+ * Il faut set le launcher 
+ */
 public class LoginController {
 	
 	@FXML
@@ -16,8 +18,10 @@ public class LoginController {
 	
 	private String username = "";
 	private String password = "";
+
 	
-	private Stage dialogStage ; // interaction entre le Lancher et le Login
+	private Launcher launcher ;// interaction entre le Lancher et le Login
+	
 	
 	/*
 	 * Lors de l'appui sur le bouton valider
@@ -33,14 +37,14 @@ public class LoginController {
 	 */
 	@FXML
 	private void handleCancel(){
-		dialogStage.close();
+		launcher.getDialogStage().close();
 	}
 	@FXML
 	private void handleLogin(){
 		if(this.user_field.getText().toLowerCase().equals("root")){
 			if(pass_field.getText().equals("root")){
 				System.out.println("Bonjour");
-				dialogStage.close();
+				launcher.getDialogStage().close();
 			}
 			else{
 				label_inco.setVisible(true);
@@ -50,13 +54,22 @@ public class LoginController {
 			label_inco.setVisible(true);
 		}
 	}
-	public void setDialogStage(Stage stage){
-		this.dialogStage = stage;
+	@FXML
+	private void handleHyperLink(){
+		launcher.initInscription();
 	}
 	public String getPassword(){
 		return this.password ;
 	}
 	public String getUsername(){
 		return this.username ;
+	}
+
+	public Launcher getLauncher() {
+		return launcher;
+	}
+
+	public void setLauncher(Launcher launcher) {
+		this.launcher = launcher;
 	}
 }

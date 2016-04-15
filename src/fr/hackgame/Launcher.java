@@ -1,6 +1,7 @@
 package fr.hackgame;
 import java.io.IOException;
 
+import fr.hackgame.view.Inscription_Controller;
 import fr.hackgame.view.LoginController;
 /*
  * Auteur : Justin Louazel
@@ -14,9 +15,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class Launcher extends Application {
+public class Launcher<InscriptionController> extends Application {
 
 	private Stage primaryStage ;
 	private AnchorPane paneLogin ;
@@ -39,9 +41,9 @@ public class Launcher extends Application {
 		
 	try {
 	// Chargement du fichier XML
-	FXMLLoader load_log = new FXMLLoader();
-	load_log.setLocation(Launcher.class.getResource("view/Login.fxml"));
-	paneLogin = (AnchorPane) load_log.load();
+	FXMLLoader loadLog = new FXMLLoader();
+	loadLog.setLocation(Launcher.class.getResource("view/Login.fxml"));
+	paneLogin = (AnchorPane) loadLog.load();
 	
 	//Lancemement de laffichage
 	Scene scene = new Scene(paneLogin);
@@ -52,15 +54,43 @@ public class Launcher extends Application {
 		primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
 		primaryStage.show();
 	
-	LoginController control = load_log.getController();
-	control.setDialogStage(primaryStage);
+	LoginController control = loadLog.getController();
+	control.setLauncher(this);
 	} catch (IOException e) {
 		e.printStackTrace();
 	}
 		
 	}
+	public void initInscription(){
+	
+		try{
+		FXMLLoader loadInsc = new FXMLLoader();
+		loadInsc.setLocation(LoginController.class.getResource("Inscription.fxml"));
+		AnchorPane page = (AnchorPane)loadInsc.load();
+		
+		Stage inStage = new Stage();
+		inStage.setTitle("Inscrivez-vous à HackGame !!");
+		inStage.initModality(Modality.WINDOW_MODAL);
+		inStage.initOwner(primaryStage);
+		Scene scene= new Scene(page);
+		inStage.setScene(scene);
+
+		Inscription_Controller insControl = loadInsc.getController();
+		insControl.setDialogStage(inStage);
+		inStage.showAndWait();
+		
+		
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+	}
+	
 	
 	public static void main(String[] args) {
 		launch(args);
+	}
+	
+	public Stage getDialogStage(){
+		return this.primaryStage ;
 	}
 }
