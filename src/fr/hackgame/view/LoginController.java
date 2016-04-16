@@ -72,4 +72,5 @@ public class LoginController {
 	public void setLauncher(Launcher launcher) {
 		this.launcher = launcher;
 	}
+	
 }

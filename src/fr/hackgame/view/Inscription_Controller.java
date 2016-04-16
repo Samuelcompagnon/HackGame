@@ -1,14 +1,25 @@
 package fr.hackgame.view;
 
+import fr.hackgame.model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class Inscription_Controller {
 
-	
+	//Recup des données password et user
+	@FXML
+	private TextField username ;
+	@FXML
+	private PasswordField password ;
+	@FXML
+	private PasswordField password_test ;
 	//ComboBox pour la date de naisance
 	@FXML
 	private ComboBox<String> cJour = new ComboBox<String>();
@@ -33,7 +44,7 @@ public class Inscription_Controller {
 	/*
 	 * Methode appelée auto par quand la classe est appellée
 	 */
-	
+	private User user ;
 	@FXML
 	private void initialize(){
 		cJour.getItems().addAll(valJour);
@@ -42,6 +53,7 @@ public class Inscription_Controller {
 		for(int i = 1900 ; i <2016 ; i++){
 			cAn.getItems().add(String.valueOf(i));
 		}
+		
 	}
 	@FXML
 	private void handleCancel(){
@@ -49,7 +61,13 @@ public class Inscription_Controller {
 	}
 	@FXML
 	private void handleValider(){
-		
+		if(password.getText() == password_test.getText()){
+		user.setUsername(username.getText());
+		user.setPassword(password.getText());
+		}
+		else{
+			
+		}
 	}
 	public Stage getDialogStage() {
 		return dialogStage;

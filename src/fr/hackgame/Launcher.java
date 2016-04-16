@@ -13,8 +13,14 @@ import fr.hackgame.view.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -44,6 +50,12 @@ public class Launcher<InscriptionController> extends Application {
 	FXMLLoader loadLog = new FXMLLoader();
 	loadLog.setLocation(Launcher.class.getResource("view/Login.fxml"));
 	paneLogin = (AnchorPane) loadLog.load();
+	
+	Image img = new Image(Launcher.class.getResourceAsStream("view/resources/wallp.png"),primaryStage.getWidth(),primaryStage.getHeight(),true,false);
+	BackgroundImage myImg = new BackgroundImage(img,
+			BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+	          BackgroundSize.DEFAULT);
+	paneLogin.setBackground(new Background(myImg));
 	
 	//Lancemement de laffichage
 	Scene scene = new Scene(paneLogin);

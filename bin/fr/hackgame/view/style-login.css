@@ -6,7 +6,7 @@ Feuille de style du launcher au lancmement du jeu.
  */
 
 .background{
-	-fx-background-image : url("resources/wallp.png");
+	/*-fx-background-image : url("resources/wallp.png");*/
 	/*-fx-background-color : black ;*/
 	
 	}
