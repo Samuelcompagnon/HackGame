@@ -1,3 +1,66 @@
 .titre{
-	-fx-font-size : 20px ;
+	-fx-font-size : 20px ;     /* le 17/04/2016 par samuel compagnon*/
+}
+.background {
+-fx-background: #303036;
+
+}
+button,
+button::before,
+button::after {
+    border: 5px solid #0cf;
+    padding: 0.5em 1em;
+}
+
+.button {
+    -fx-box-sizing: border-box;
+    -fx-position: relative;
+    -fx-overflow: hidden;
+    -fx-cursor: pointer;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.5em;
+    -fx-letter-spacing: 0.1em;
+    -fx-text-transform: uppercase;
+    -fx-color: transparent;
+    -fx-appearance: none;
+}
+
+.button::before,
+.button::after {
+    -fx-content: attr(data-text);
+    -fx-position: absolute;
+    -fx-right: -5px;
+    -fx-left: -5px;
+    -fx-transition: top 300ms;
+}
+
+.button::before {
+    -fx-top: 100%;
+    -fx-color: #fff;
+    -fx-background-color: #0cf;
+}
+
+.button:hover::before,
+.button:focus::before {
+    -fx-top: -5px;
+}
+
+.button:active::before {
+    -fx-color: gold;
+}
+
+.button::after {
+    -fx-top: -5px;
+    -fx-color: #0cf;
+}
+
+.button:hover::after,
+.button:focus::after {
+    -fx-top: -100%;
+}
+.ComboBox {
+    -fx-padding: 16px 20px;
+    -fx-border: none;
+    -fx-border-radius: 4px;
+   -fx-background-color: #f1f1f1
 }
