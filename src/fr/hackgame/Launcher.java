@@ -4,7 +4,7 @@ import java.io.IOException;
 import fr.hackgame.view.Inscription_Controller;
 import fr.hackgame.view.LoginController;
 /*
- * Auteur : Justin Louazel
+ * Auteur : Justin Louazel / Samuel compagnon
  * Derniere modif : 31/03/2016
  * 
  * Classe principale, charg√©e de lancer les appli et les affichages 
@@ -81,7 +81,7 @@ public class Launcher<InscriptionController> extends Application {
 		AnchorPane page = (AnchorPane)loadInsc.load();
 		
 		Stage inStage = new Stage();
-		inStage.setTitle("Inscrivez-vous ‡ HackGame !!");
+		inStage.setTitle("Inscription");
 		inStage.initModality(Modality.WINDOW_MODAL);
 		inStage.initOwner(primaryStage);
 		Scene scene= new Scene(page);
@@ -106,3 +106,4 @@ public class Launcher<InscriptionController> extends Application {
 		return this.primaryStage ;
 	}
 }
+
