@@ -1,6 +1,16 @@
 package fr.hackgame.view;
 
+import java.io.BufferedInputStream;
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+
 import fr.hackgame.Launcher;
+import fr.hackgame.model.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -22,7 +32,11 @@ public class LoginController {
 	
 	private Launcher launcher ;// interaction entre le Lancher et le Login
 	
+	private ArrayList <User> users = new ArrayList<User>();//liste des comptes enregistrés
 	
+	private ObjectInputStream ois ;
+	
+	private boolean passwordOk = false ;
 	/*
 	 * Lors de l'appui sur le bouton valider
 	 */
@@ -41,18 +55,22 @@ public class LoginController {
 	}
 	@FXML
 	private void handleLogin(){
-		if(this.user_field.getText().toLowerCase().equals("root")){
-			if(pass_field.getText().equals("root")){
-				System.out.println("Bonjour");
-				launcher.getDialogStage().close();
-			}
-			else{
-				label_inco.setVisible(true);
+		
+		loadUserAccount(); // load comptes existants
+		for(User u : users){
+			
+			if(this.user_field.getText().equals(u.getUsername())){
+				if(pass_field.getText().equals(u.getPassword())){
+					passwordOk = true ;
+					System.out.println("Bonjour " + u.getUsername());
+					launcher.getDialogStage().close();
+				}
 			}
 		}
-		else{
+		if(!passwordOk){
 			label_inco.setVisible(true);
 		}
+		
 	}
 	@FXML
 	private void handleHyperLink(){
@@ -73,4 +91,40 @@ public class LoginController {
 		this.launcher = launcher;
 	}
 	
+	/*
+	 * Chargement des comptes enregistrés. 
+	 */
+	private int loadUserAccount(){
+	 try {
+		ois = new ObjectInputStream(
+					new BufferedInputStream(
+							new FileInputStream(
+									new File("comptes.user"))));
+
+		
+		
+			boolean hasObj = true ;
+			
+			while(hasObj){
+				try{
+					this.users.add((User)ois.readObject());
+				}catch(EOFException eofe){
+					hasObj = false ;
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		ois.close();
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} 
+	 
+		return 0;
+		
+	}
 }

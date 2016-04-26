@@ -15,12 +15,13 @@
       <Label layoutX="74.0" layoutY="261.0" text="Confirmer le mot de passe" />
       <Label layoutX="113.0" layoutY="307.0" text="Date de naissance" />
       <Button layoutX="274.0" layoutY="405.0" mnemonicParsing="false" onAction="#handleValider" styleClass="test" text="Valider" />
-      <Button layoutX="522.0" layoutY="461.0" mnemonicParsing="false" onAction="#handleCancel" text="Quitter" />
-      <TextField layoutX="244.0" layoutY="172.0" />
-      <PasswordField layoutX="245.0" layoutY="214.0" />
-      <PasswordField layoutX="244.0" layoutY="257.0" />
+      <Button layoutX="515.0" layoutY="455.0" mnemonicParsing="false" onAction="#handleCancel" text="Quitter" />
+      <TextField fx:id="username" layoutX="244.0" layoutY="172.0" />
+      <PasswordField fx:id="password" layoutX="245.0" layoutY="214.0" />
+      <PasswordField fx:id="password_test" layoutX="244.0" layoutY="257.0" />
       <ComboBox fx:id="cJour" layoutX="244.0" layoutY="303.0" prefHeight="25.0" prefWidth="61.0" promptText="00" />
       <ComboBox fx:id="cMois" layoutX="319.0" layoutY="303.0" prefHeight="25.0" prefWidth="61.0" promptText="00" />
       <ComboBox fx:id="cAn" layoutX="393.0" layoutY="303.0" prefHeight="25.0" prefWidth="72.0" promptText="0000" />
+      <Label fx:id="inco" layoutX="394.0" layoutY="261.0" text="Le mot de passe n'est pas le même..." visible="false" />
    </children>
 </AnchorPane>
