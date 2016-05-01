@@ -1,8 +1,10 @@
 package fr.hackgame;
 import java.io.IOException;
 
+import fr.hackgame.model.User;
 import fr.hackgame.view.Inscription_Controller;
 import fr.hackgame.view.LoginController;
+import fr.hackgame.view.OSController;
 /*
  * Auteur : Justin Louazel / Samuel compagnon
  * Derniere modif : 31/03/2016
@@ -24,7 +26,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class Launcher<InscriptionController> extends Application {
+public class Launcher extends Application {
 
 	private Stage primaryStage ;
 	private AnchorPane paneLogin ;
@@ -38,13 +40,14 @@ public class Launcher<InscriptionController> extends Application {
 		this.primaryStage = primaryStage ;
 		this.primaryStage.setTitle("HackGame - Hack with fun !!");
 		initLogin();
+		primaryStage.show();
 	}
 
 	/*
 	 * Methode pour lancer le login
 	 */
 	public void initLogin(){
-		
+
 	try {
 	// Chargement du fichier XML
 	FXMLLoader loadLog = new FXMLLoader();
@@ -64,15 +67,32 @@ public class Launcher<InscriptionController> extends Application {
 		primaryStage.setResizable(false);
 		primaryStage.setFullScreenExitHint("test");
 		primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
-		primaryStage.show();
-	
-	LoginController control = loadLog.getController();
-	control.setLauncher(this);
+		
+		LoginController control = loadLog.getController();
+		control.setLauncher(this);
 	} catch (IOException e) {
 		e.printStackTrace();
 	}
 		
 	}
+	public void initOs(User user) {
+		try {
+			FXMLLoader loadOs = new FXMLLoader();
+			loadOs.setLocation(Launcher.class.getResource("view/OperatingSystem.fxml"));
+			AnchorPane paneOs = (AnchorPane)loadOs.load() ;
+
+			OSController osControl = loadOs.getController();
+			osControl.setLauncher(this);
+			osControl.setUsername(user.getUsername());
+			
+			Scene osScene = new Scene(paneOs);
+			primaryStage.setScene(osScene);
+			primaryStage.setFullScreen(true);
+			
+		} catch (IOException e) {
+		}
+	}
+
 	public void initInscription(){
 	
 		try{

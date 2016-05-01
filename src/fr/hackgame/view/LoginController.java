@@ -62,8 +62,7 @@ public class LoginController {
 			if(this.user_field.getText().equals(u.getUsername())){
 				if(pass_field.getText().equals(u.getPassword())){
 					passwordOk = true ;
-					System.out.println("Bonjour " + u.getUsername());
-					launcher.getDialogStage().close();
+					launcher.initOs(u);
 				}
 			}
 		}
