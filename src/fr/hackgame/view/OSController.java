@@ -3,6 +3,7 @@ package fr.hackgame.view;
 import fr.hackgame.Launcher;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.shape.Rectangle;
 
 public class OSController {
 	
@@ -10,6 +11,8 @@ public class OSController {
 	@FXML
 	private Label userLabel;
 	private String username = "";
+	@FXML
+	private Rectangle menuBar ;
 	
 	public OSController(){}
 	
@@ -20,7 +23,6 @@ public class OSController {
 
 	@FXML
 	private void initialize(){
-		this.userLabel.setText(username);
 	}
 
 	public Launcher getLauncher() {
@@ -40,6 +42,9 @@ public class OSController {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+	public void uptadeScene(){
+		this.menuBar.setWidth(launcher.getDialogStage().getWidth());
+		this.userLabel.setText(username);
+	}
 	
 }

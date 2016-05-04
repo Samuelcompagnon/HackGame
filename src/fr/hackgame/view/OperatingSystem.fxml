@@ -26,8 +26,8 @@
          </image>
       </ImageView>
       <Button layoutX="1228.0" layoutY="86.0" mnemonicParsing="false" onAction="#handleCancel" text="Quitter" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" cache="true" fill="#1d1e1e" focusTraversable="true" height="41.0" layoutY="-3.0" opacity="0.65" smooth="false" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" width="1500.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Label fx:id="userLabel" layoutY="18.0" text="Label" textFill="WHITE" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+      <Rectangle fx:id="menuBar" arcHeight="5.0" arcWidth="5.0" cache="true" fill="#1d1e1e" focusTraversable="true" height="41.0" layoutY="-3.0" opacity="0.85" smooth="false" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" width="1500.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label fx:id="userLabel" layoutX="1445.0" layoutY="10.0" text="Label" textFill="WHITE" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="10.0">
          <font>
             <Font size="15.0" />
          </font>
