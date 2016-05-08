@@ -1,6 +1,11 @@
 package fr.hackgame.view;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import fr.hackgame.Launcher;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Rectangle;
@@ -13,6 +18,9 @@ public class OSController {
 	private String username = "";
 	@FXML
 	private Rectangle menuBar ;
+	@FXML
+	private Label labelHeure ;
+	private StringProperty hour ;
 	
 	public OSController(){}
 	
@@ -43,8 +51,18 @@ public class OSController {
 		this.username = username;
 	}
 	public void uptadeScene(){
+		DateFormat format = new SimpleDateFormat("HH:mm");
+		labelHeure.setText(format.format(new Date()));
 		this.menuBar.setWidth(launcher.getDialogStage().getWidth());
 		this.userLabel.setText(username);
+	}
+
+	public StringProperty getHour() {
+		return hour;
+	}
+
+	public void setHour(StringProperty hour) {
+		this.hour = hour;
 	}
 	
 }
