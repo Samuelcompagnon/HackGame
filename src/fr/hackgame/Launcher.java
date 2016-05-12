@@ -84,7 +84,7 @@ public class Launcher extends Application {
 			OSController osControl = loadOs.getController();
 			osControl.setLauncher(this);
 			osControl.setUsername(user.getUsername());
-			osControl.uptadeScene();
+			osControl.updateScene();
 			
 			Scene osScene = new Scene(paneOs);
 			primaryStage.setScene(osScene);
