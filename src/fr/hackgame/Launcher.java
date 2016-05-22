@@ -1,6 +1,7 @@
 package fr.hackgame;
 import java.io.IOException;
 
+import fr.hackgame.model.Os;
 import fr.hackgame.model.User;
 import fr.hackgame.view.Inscription_Controller;
 import fr.hackgame.view.LoginController;
@@ -30,6 +31,7 @@ public class Launcher extends Application {
 
 	private Stage primaryStage ;
 	private AnchorPane paneLogin ;
+	private Os os ;
 	
 	/*
 	 * methode appelé lors du lancement de l'appli
@@ -82,9 +84,10 @@ public class Launcher extends Application {
 			AnchorPane paneOs = (AnchorPane)loadOs.load() ;
 
 			OSController osControl = loadOs.getController();
-			osControl.setLauncher(this);
-			osControl.setUsername(user.getUsername());
-			osControl.updateScene();
+			os = new Os (user);
+			os.setController(osControl);
+			os.getController().setLabelUsername(user.getUsername());
+			os.getController().setLauncher(this);
 			
 			Scene osScene = new Scene(paneOs);
 			primaryStage.setScene(osScene);

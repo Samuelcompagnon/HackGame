@@ -2,9 +2,11 @@ package fr.hackgame.view;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import fr.hackgame.Launcher;
+import fr.hackgame.model.Application;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -27,29 +29,8 @@ public class OSController {
 	@FXML
 	private Label labelHeure ;
 	
-	int i = 0 ;
-	
-	//Thread en fond qui permet MAJ 
-	private Timeline timeline = new Timeline();
-	
 	public OSController(){
-		//timeline = new Timeline(new KeyFrame(Duration.millis(1000), bt));
-		timeline.setCycleCount(Animation.INDEFINITE);
-		//tmps a passer pour la mise a jour
-        Duration duration = Duration.millis(1000);
-        //action a executer quand la KeyFrame est atteinte : ici MAJ
-        EventHandler<ActionEvent> onFinished = new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent t) {
-
-        		DateFormat format = new SimpleDateFormat("HH:mm");
-        		labelHeure.setText(format.format(new Date()));
-            }
-        };
-        
-        //action de mettre a jour l'heure ou autre 
-        KeyFrame keyFrame = new KeyFrame(duration, onFinished);
-        timeline.getKeyFrames().add(keyFrame);
-		timeline.play();
+		
 		}
 
 	@FXML
@@ -63,7 +44,6 @@ public class OSController {
 	}
 
 
-
 	public void setLauncher(Launcher launcher) {
 		this.launcher = launcher;
 	}
@@ -75,23 +55,24 @@ public class OSController {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	//Mise a jour de l'affichage 
-	public void updateScene(){
-		this.menuBar.setWidth(launcher.getDialogStage().getWidth());
-		this.userLabel.setText(username);
-	}
 	
 	public Label getLabelHour() {
 		return labelHeure;
 	}
 
-	public void setLabelHour(Label hour) {
-		this.labelHeure = hour;
+	public void setLabelHour(String hour) {
+		this.labelHeure.setText(hour);
 	}
-	public void setLabelUsername(Label l){
-		this.userLabel = l ;
+	public void setLabelUsername(String l){
+		this.userLabel.setText(l );
 	}
 	public Label getUserLabel(){
 		return this.userLabel;
+	}
+	public Rectangle getMenuBar(){
+		return this.menuBar ;
+	}
+	public void setMenuBar(Rectangle r){
+		this.menuBar = r ;
 	}
 }
